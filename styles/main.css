@@ -1,0 +1,9 @@
+/* main.css file for all the styles for the app */
+
+
+.main-container {
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 10%;
+
+}

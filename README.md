@@ -1,2 +1,3 @@
 # NeuralNetProject
-Neural Network class project 
+
+Neural Network class project

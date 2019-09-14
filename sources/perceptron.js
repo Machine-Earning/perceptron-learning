@@ -7,13 +7,13 @@ class Perceptron {
 
 
     // constructor for the NN
-    constructor(input, target) { //takes in input matrix p and output a
+    constructor() { //takes in input matrix p and output a
 
         // initializing input
-        this.input = input
+        // this.input = input
 
         // initializing  output
-        this.target = target
+        // this.target = target
 
 
         // initializing target output
@@ -26,44 +26,6 @@ class Perceptron {
 
         this.biases = []
         populateArray(this.biases, 7, 1, Math.random())
-    }
-
-    // training part 1
-    feedForward() {
-        this.output = this.hardLims(math.dot(this.input, this.weights) + this.biases)
-    }
-
-
-
-
-    // training part 2
-    backPropagation() {
-        let e = this.error(this.target, this.output)
-        this.weights = math.add(this.weights, math.dot(e, math.transpose(this.input)))
-        this.biases = math.add(this.biases, e)
-    }
-
-    train(epochNum) {
-
-        for (let e = 1; e <= epochNum; ++e) {
-
-            // display the epooch number
-
-            // propagate the data through the network
-            this.feedForward()
-
-            // update the weights in the network
-            this.backPropagation()
-
-            // Display the error
-
-        }
-
-    }
-
-
-    predict(input) {
-        return this.hardLims(math.dot(input, this.weights) + this.biases)
     }
 
     // Loss function
@@ -83,4 +45,53 @@ class Perceptron {
         }
         return res
     }
+
+
+
+
+    // training part 1
+    feedForward(input) {
+        this.output = this.hardLims(math.dot(input, this.weights) + this.biases)
+        return this.output
+    }
+
+
+
+
+    // training part 2
+    backPropagation(input, target, output) {
+        let e = this.error(target, output)
+
+        console.log(`error = ${e}\n`);
+
+        this.weights = math.add(this.weights, math.dot(e, math.transpose(input)))
+        this.biases = math.add(this.biases, e)
+    }
+
+    // training function 
+    train(epochNum, dataset) {
+        // dataset is an array of data objects pair
+
+        for (let e = 1; e <= epochNum; ++e) {
+            // display the epooch number
+            console.log(`Epoch # ${e}\n`)
+
+            // for (let data of dataset) {
+            // propagate the data through the network
+            this.feedForward(data[e].input)
+
+            // update the weights in the network
+            this.backPropagation(data[e].input, data[e].target, this.output)
+            // }
+        }
+
+    }
+
+
+    predict(input) {
+        console.log(`Input: ${input}\n`)
+        console.log(`Output: ${this.feedForward(input)}\n`)
+    }
+
+
 }

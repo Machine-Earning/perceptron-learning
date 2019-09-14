@@ -8,6 +8,8 @@ const layouts = require('express-ejs-layouts')
 const bodyParser = require('body-parser')
 const server = require('http').Server(app)
 
+const mainRoute = require('./sources/main')
+
 app.use(morgan('dev')) // logging requests to server
 
 app.set('view engine', 'ejs')
@@ -24,15 +26,7 @@ app.use(bodyParser.urlencoded({
 
 
 
-app.get('/', (req, res) => {
-    res.render('layout')
-    console.log('Enter Perceptron')
-})
-
-
-app.post('/', (req, res) => {
-    // stuff
-})
+app.use('/', mainRoute)
 
 
 

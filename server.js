@@ -12,7 +12,7 @@ app.use(morgan('dev')) // logging requests to server
 
 app.set('view engine', 'ejs')
 app.set('views', __dirname + '/views/')
-app.set('layout', 'main') // not a file path; does a lookpu
+app.set('layout', 'layout') // not a file path; does a lookpu
 
 
 app.use(layouts)

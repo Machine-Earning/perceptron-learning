@@ -10,7 +10,7 @@ class Data {
         this.target = target;
     }
 
-    getInput() {
+    printInput() {
         console.log('[')
         for (let i = 0; i < this.input.length; ++i) {
             console.log(`${this.input[i]}, `)
@@ -20,11 +20,11 @@ class Data {
         }
 
         console.log(']')
-        return this.input
+        // return this.input
 
     }
 
-    getTarget() {
+    printTarget() {
         console.log('[')
         for (let i = 0; i < this.target.length; ++i) {
             console.log(`${this.target[i]}, `)
@@ -32,8 +32,7 @@ class Data {
         }
 
         console.log(']')
-        return this.target
-
+        // return this.target
     }
 
 }

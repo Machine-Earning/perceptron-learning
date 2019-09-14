@@ -24,6 +24,19 @@ app.use(bodyParser.urlencoded({
 
 
 
+app.get('/', (req, res) => {
+    res.render('layout')
+    console.log('Enter Perceptron')
+})
+
+
+app.post('/', (req, res) => {
+    // stuff
+})
+
+
+
+
 server.listen(8080, (error) => {
     console.log((error) ? error : `Perceptron\nServer up on ${8080}`)
 })

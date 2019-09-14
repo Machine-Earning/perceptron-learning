@@ -1,0 +1,23 @@
+{
+  "name": "NeuralNetProject",
+  "version": "1.0.0",
+  "description": "Neural Network class project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ERUD1T3/NeuralNetProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ERUD1T3/NeuralNetProject/issues"
+  },
+  "homepage": "https://github.com/ERUD1T3/NeuralNetProject#readme",
+  "dependencies": {
+    "mathjs": "^6.2.1"
+  }
+}

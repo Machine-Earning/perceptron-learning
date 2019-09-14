@@ -1,7 +1,7 @@
 // perceptron.js for perceptron object
-import {
-    math
-} from 'mathjs'
+const math = require('mathjs')
+const data = require('./data')
+const populateArray = require('./utils')
 
 class Perceptron {
 
@@ -95,3 +95,6 @@ class Perceptron {
 
 
 }
+
+
+module.exports = Perceptron

@@ -19,12 +19,11 @@ app.use(layouts)
 app.use(express.static(__dirname + '/public')) // serving frontend file; index.html is starting point
 app.use(express.json()) // middleware to read json
 app.use(bodyParser.urlencoded({
-    limit: '5mb',
     extended: false
 }))
 
 
 
 server.listen(8080, (error) => {
-    console.log((error) ? error : `***SeaIRL***\nServer up on ${8080}`)
+    console.log((error) ? error : `Perceptron\nServer up on ${8080}`)
 })

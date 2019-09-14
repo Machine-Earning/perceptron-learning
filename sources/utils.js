@@ -1,7 +1,7 @@
 // file for helper functions
 
 
-function populateArray(array, rowNum, colNum, val) {
+module.exports.populateArray = (array, rowNum, colNum, val) => {
     for (let i = 0; i < rowNum; ++i) {
         array[i] = []; // Initialize inner array
         for (let j = 0; j < colNum; ++j) {

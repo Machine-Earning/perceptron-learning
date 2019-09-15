@@ -26,10 +26,6 @@ td {
     text-align: center;
 }
 
-.grid {
-    margin-left: 2.5%;
-}
-
 .main-container {
     max-width: 1200px;
     margin: auto;
@@ -40,15 +36,20 @@ td {
 
 
 .grid-container {
-    width: 30%;
+    width: 37%;
     border: 1px solid purple;
     border-radius: 5%;
 }
 
-/* td {
-    display: inline-grid;
-} */
+.input-container {
+    margin-top: 2.5%;
+}
 
-/* * {
-    display: inlin
-} */
+td.grid {
+    width: 50px;
+    height: 50px;
+}
+
+.target-container {
+    margin-left: 2.5%;
+}

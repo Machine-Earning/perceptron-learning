@@ -1,6 +1,6 @@
 .onoffswitch {
     position: relative;
-    width: 90px;
+    width: 108px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -15,7 +15,7 @@
     overflow: hidden;
     cursor: pointer;
     border: 2px solid #999999;
-    border-radius: 20px;
+    border-radius: 12px;
 }
 
 .onoffswitch-inner {
@@ -30,10 +30,10 @@
     display: block;
     float: left;
     width: 50%;
-    height: 30px;
+    height: 37px;
     padding: 0;
-    line-height: 30px;
-    font-size: 14px;
+    line-height: 37px;
+    font-size: 15px;
     color: white;
     font-family: Trebuchet, Arial, sans-serif;
     font-weight: bold;
@@ -42,30 +42,30 @@
 
 .onoffswitch-inner:before {
     content: "TEST";
-    padding-left: 10px;
+    padding-left: 13px;
     background-color: #018786;
     color: #FFFFFF;
 }
 
 .onoffswitch-inner:after {
     content: "TRAIN";
-    padding-right: 10px;
+    padding-right: 13px;
     background-color: #6200EE;
-    color: #FAFAFA;
+    color: #FFFFFF;
     text-align: right;
 }
 
 .onoffswitch-switch {
     display: block;
-    width: 18px;
-    margin: 6px;
+    width: 36px;
+    margin: 0.5px;
     background: #FFFFFF;
     position: absolute;
     top: 0;
     bottom: 0;
-    right: 56px;
+    right: 67px;
     border: 2px solid #999999;
-    border-radius: 20px;
+    border-radius: 12px;
     transition: all 0.3s ease-in 0s;
 }
 

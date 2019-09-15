@@ -4,6 +4,7 @@
     <form action="/" method="post">
 
         <!-- Material checked -->
+        <h2>Mode</h2>
         <div class="onoffswitch">
             <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
             <label class="onoffswitch-label" for="myonoffswitch">
@@ -13,9 +14,9 @@
         </div>
 
 
-        <div class="input-container">
-            <h3>Input Matrix</h3>
-            <div class="grid-container">
+        <h3>Input Matrix</h3>
+        <div class="grid-container">
+            <div class="input-container">
                 <table class="grid">
                     <tr>
                         <td> </td>
@@ -30,10 +31,10 @@
 
                     <% for(let i = 0; i < 9; ++i) { %>
                     <tr>
-                        <td> <%= i %> </td>
+                        <td class="grid"> <%= i %> </td>
 
                         <% for(let j = 0; j < 7; ++j) { %>
-                        <td>
+                        <td class="grid">
                             <div class="mdc-form-field">
                                 <div class="mdc-checkbox">
                                     <input type="checkbox" class="mdc-checkbox__native-control" id="checkbox-1"
@@ -58,9 +59,8 @@
         </div>
 
 
-        <div class="targer-container">
-            <h3>Target Vector</h3>
-
+        <h3>Target Vector</h3>
+        <div class="target-container">
             <table>
                 <tr>
                     <td>A</td>

@@ -1,5 +1,32 @@
 /* main.css file for all the styles for the app */
 
+:root {
+    font-family: Roboto, Ubuntu;
+}
+
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* body {
+    align-content: center;
+} */
+
+table {
+    display: grid;
+}
+
+td {
+    text-align: center;
+}
+
+.grid {
+    margin-left: 2.5%;
+}
 
 .main-container {
     max-width: 1200px;
@@ -9,6 +36,16 @@
     display: block;
 }
 
+
+.grid-container {
+    width: 30%;
+    border: 1px solid purple;
+    border-radius: 5%;
+}
+
+/* td {
+    display: inline-grid;
+} */
 
 /* * {
     display: inlin

@@ -3,16 +3,6 @@
 <div class="main-container">
     <form action="/" method="post">
 
-        <!-- Material checked -->
-        <h2>Mode</h2>
-        <div class="onoffswitch">
-            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
-            <label class="onoffswitch-label" for="myonoffswitch">
-                <span class="onoffswitch-inner"></span>
-                <span class="onoffswitch-switch"></span>
-            </label>
-        </div>
-
 
         <h3>Input Matrix</h3>
         <div class="grid-container">
@@ -91,24 +81,40 @@
 
 
         <br>
-        <button class=" mdc-button mdc-button--raised" type="submit">
-            <span class="mdc-button__label">Add to Dataset</span>
-        </button>
-        <button class="mdc-button mdc-button--outlined" type="reset">
+        <button class="mdc-button mdc-button" type="reset">
             <span class="mdc-button__label">Clear</span>
         </button>
-        <br>
-
-        <br>
-        <b>Dataset Size</b>: <div name="datasetSize"></div>
-        <button class="mdc-button mdc-button--raised" type="button">
-            <span class="mdc-button__label">Train</span>
+        <button class=" mdc-button mdc-button--outlined" type="submit">
+            <span class="mdc-button__label">Add to Dataset</span>
         </button>
-
-
         <!-- remove the tagert layer when done training -->
-        <button class="mdc-button mdc-button--raised" type="button">
+        <a class="mdc-button mdc-button--unelevated" href="/test">
             <span class="mdc-button__label">Predict</span>
-        </button>
+        </a>
+        <br>
+
+        <br>
+        <h3><i>Dataset Size</i></h3>
+        <p><%= dataNum %> data items</p>
+        <br><br>
+
+        <div role="progressbar" class="mdc-linear-progress">
+            <div class="mdc-linear-progress__buffering-dots"></div>
+            <div class="mdc-linear-progress__buffer"></div>
+            <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+                <span class="mdc-linear-progress__bar-inner"></span>
+            </div>
+            <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+                <span class="mdc-linear-progress__bar-inner"></span>
+            </div>
+        </div>
+
+        <br>
+        <a class="mdc-button mdc-button--unelevated" href="/train">
+            <span class="mdc-button__label">Train</span>
+        </a>
+
+
+
     </form>
 </div>

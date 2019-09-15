@@ -1,11 +1,10 @@
 // perceptron.js for perceptron object
 const math = require('mathjs')
 const data = require('./data')
-const populateArray = require('./utils')
+const populateArray = require('./utils').populateArray
+const vec2matrix = require('./utils').vec2matrix
 
 class Perceptron {
-
-
     // constructor for the NN
     constructor() { //takes in input matrix p and output a
 
@@ -17,31 +16,38 @@ class Perceptron {
 
 
         // initializing target output
-        this.output = []
+        this.output = vec2matrix(new Array(7).fill(0))
         populateArray(this.output, 7, 1, 0)
 
-        this.weights = []
+
+        this.weights = new Array(7)
+        for (let i = 0; i < this.weights.length; ++i) {
+            this.weights[i] = new Array(63).fill(0)
+        }
         populateArray(this.weights, 7, 63, Math.random())
 
 
-        this.biases = []
+        this.biases = vec2matrix(new Array(7).fill(0))
         populateArray(this.biases, 7, 1, Math.random())
     }
 
     // Loss function
     error(target, output) {
-        e = []
-        for (let i = 0; i < target.length; ++i) {
-            e[i] = target[i] - output[i]
-        }
+        // let e = vec2matrix(new Array(7))
+        // for (let i = 0; i < target.length; ++i) {
+        //     e[i] = target[i] - output[i]
+        // }
+        let e = math.subtract(target, output)
         return e
     }
 
     // activation function
-    hardLim(n) {
-        res = []
-        for (let i = 0; i < n.length; ++i) {
-            res[i] = (n[i] >= 0) ? 1 : 0
+    hardLim(n, rowSize, colSize) {
+        let res = new Array(rowSize)
+        for (let i = 0; i < rowSize; ++i) {
+            res[i] = new Array(colSize)
+            for (let j = 0; j < colSize; ++j)
+                res[i][j] = (n[i][j] >= 0) ? 1 : 0
         }
         return res
     }
@@ -51,7 +57,8 @@ class Perceptron {
 
     // training part 1
     feedForward(input) {
-        this.output = this.hardLim(math.dot(input, this.weights) + this.biases)
+        input = vec2matrix(input)
+        this.output = this.hardLim(math.add(math.multiply(this.weights, input), this.biases), 7, 1)
         return this.output
     }
 
@@ -60,28 +67,45 @@ class Perceptron {
 
     // training part 2
     backPropagation(input, target, output) {
+
+        target = vec2matrix(target)
+        input = vec2matrix(input)
+
         let e = this.error(target, output)
 
-        console.log(`error = ${e}\n`);
+        console.log('error');
+        console.log(e)
 
-        this.weights = math.add(this.weights, math.dot(e, math.transpose(input)))
+        let transposed = math.transpose(input)
+        // let transposed = vec2matrix(input)
+
+        // console.log('input')
+        // console.log(input)
+        // console.log('transposed')
+        // console.log(transposed)
+
+        this.weights = math.add(this.weights, math.multiply(e, transposed))
         this.biases = math.add(this.biases, e)
     }
 
     // training function 
     train(epochNum, dataset) {
         // dataset is an array of data objects pair
+        if (dataset.length === 0) {
+            console.log('Emptry training set')
+            return
+        }
 
-        for (let e = 1; e <= epochNum; ++e) {
+        for (let e = 0; e < epochNum; ++e) {
             // display the epooch number
             console.log(`Epoch # ${e}\n`)
 
             // for (let data of dataset) {
             // propagate the data through the network
-            this.feedForward(data[e].input)
+            this.feedForward(dataset[e].input)
 
             // update the weights in the network
-            this.backPropagation(data[e].input, data[e].target, this.output)
+            this.backPropagation(dataset[e].input, dataset[e].target, this.output)
             // }
         }
 

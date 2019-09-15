@@ -3,7 +3,7 @@
 
 module.exports.populateArray = (array, rowNum, colNum, val) => {
     for (let i = 0; i < rowNum; ++i) {
-        array[i] = []; // Initialize inner array
+        // array[i] = []; // Initialize inner array
         for (let j = 0; j < colNum; ++j) {
             // populating the array with random number from 0 - 1
             array[i][j] = val;
@@ -26,4 +26,14 @@ module.exports.parseTarget = (rawTarget) => {
     target[parseInt(rawTarget, 10)] = 1;
 
     return target
+}
+
+module.exports.vec2matrix = (array) => {
+    let res = new Array(array.length)
+    // let res = []
+    for (let i = 0; i < array.length; ++i) {
+        // let tmp = []
+        res[i] = [array[i]]
+    }
+    return res
 }

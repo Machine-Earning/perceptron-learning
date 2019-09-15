@@ -9,11 +9,13 @@ const {
 } = require('./utils')
 
 const DATASET = []
-
+const P = new Perceptron()
 
 router.get('/', (req, res) => {
-    res.render('layout')
-    console.log('Enter Perceptron')
+    res.render('main', {
+        dataNum: DATASET.length
+    })
+    console.log('Enter Data')
 })
 
 router.post('/', (req, res) => {
@@ -23,12 +25,26 @@ router.post('/', (req, res) => {
 
     DATASET.push(new Data(input, target))
 
-    // console.log(input)
-    // console.log(target)
+
     console.log(DATASET)
 
     console.log('Data added to Dataset')
     res.redirect('/')
+})
+
+
+router.get('/train', (req, res) => {
+
+    console.log(`Dataset size ${DATASET.length}`)
+
+    P.train(DATASET.length, DATASET)
+    P.predict(DATASET[0].input)
+    res.redirect('/')
+})
+
+
+router.get('/test', (req, res) => {
+
 })
 
 

@@ -10,3 +10,20 @@ module.exports.populateArray = (array, rowNum, colNum, val) => {
         }
     }
 }
+
+
+module.exports.parseInput = (rawInput) => {
+    input = new Array(63).fill(0)
+    for (let index of rawInput) {
+        input[parseInt(index, 10)] = 1;
+    }
+    return input
+}
+
+
+module.exports.parseTarget = (rawTarget) => {
+    target = new Array(7).fill(0)
+    target[parseInt(rawTarget, 10)] = 1;
+
+    return target
+}

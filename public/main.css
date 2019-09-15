@@ -27,7 +27,8 @@ td {
 }
 
 .main-container {
-    max-width: 1200px;
+    max-width: 480px;
+    align-content: center;
     margin: auto;
     margin-top: 10%;
     margin-bottom: 10%;
@@ -36,7 +37,7 @@ td {
 
 
 .grid-container {
-    width: 37%;
+    width: 90%;
     border: 1px solid purple;
     border-radius: 5%;
 }

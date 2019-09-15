@@ -38,10 +38,10 @@ class Perceptron {
     }
 
     // activation function
-    hardLims(n) {
+    hardLim(n) {
         res = []
         for (let i = 0; i < n.length; ++i) {
-            res[i] = (n[i] >= 0) ? 1 : -1
+            res[i] = (n[i] >= 0) ? 1 : 0
         }
         return res
     }
@@ -51,7 +51,7 @@ class Perceptron {
 
     // training part 1
     feedForward(input) {
-        this.output = this.hardLims(math.dot(input, this.weights) + this.biases)
+        this.output = this.hardLim(math.dot(input, this.weights) + this.biases)
         return this.output
     }
 

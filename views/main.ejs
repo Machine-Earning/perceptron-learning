@@ -37,8 +37,8 @@
                         <td class="grid">
                             <div class="mdc-form-field">
                                 <div class="mdc-checkbox">
-                                    <input type="checkbox" class="mdc-checkbox__native-control" id="checkbox-1"
-                                        name="input" />
+                                    <input type="checkbox" class="mdc-checkbox__native-control" name="input"
+                                        value="<%= i * 7 + j %>" />
                                     <div class="mdc-checkbox__background">
                                         <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
                                             <path class="mdc-checkbox__checkmark-path" fill="none"
@@ -47,7 +47,6 @@
                                         <div class="mdc-checkbox__mixedmark"></div>
                                     </div>
                                 </div>
-                                <!-- <label for="checkbox-1">Checkbox 1</label> -->
                             </div>
                         </td>
                         <% } %>
@@ -72,17 +71,17 @@
                     <td>K</td>
                 </tr>
                 <tr>
-                    <% for(let j = 0; j < 7; ++j) { %>
+                    <% for(let k = 0; k < 7; ++k) { %>
                     <td>
                         <div class="mdc-form-field">
                             <div class="mdc-radio">
-                                <input class="mdc-radio__native-control" type="radio" name="target" checked>
+                                <input class="mdc-radio__native-control" type="radio" name="target" value="<%= k %>">
                                 <div class="mdc-radio__background">
                                     <div class="mdc-radio__outer-circle"></div>
                                     <div class="mdc-radio__inner-circle"></div>
                                 </div>
                             </div>
-                            <!-- <label for="A">A</label> -->
+
                         </div>
                     </td>
                     <% } %>
@@ -92,7 +91,7 @@
 
 
         <br>
-        <button class="mdc-button mdc-button--raised" type="submit">
+        <button class=" mdc-button mdc-button--raised" type="submit">
             <span class="mdc-button__label">Add to Dataset</span>
         </button>
         <button class="mdc-button mdc-button--outlined" type="reset">

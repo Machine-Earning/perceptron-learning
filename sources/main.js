@@ -2,6 +2,11 @@
 const router = require('express').Router()
 const Data = require('./data')
 const Perceptron = require('./perceptron')
+const {
+    populateArray,
+    parseInput,
+    parseTarget
+} = require('./utils')
 
 const DATASET = []
 
@@ -12,7 +17,16 @@ router.get('/', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    DATASET.push(new Data(req.body.input, req.body.target))
+
+    let input = parseInput(req.body.input)
+    let target = parseTarget(req.body.target)
+
+    DATASET.push(new Data(input, target))
+
+    // console.log(input)
+    // console.log(target)
+    console.log(DATASET)
+
     console.log('Data added to Dataset')
     res.redirect('/')
 })

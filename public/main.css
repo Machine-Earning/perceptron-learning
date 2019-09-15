@@ -1,4 +1,6 @@
 /* main.css file for all the styles for the app */
+@import './switch.css';
+
 
 :root {
     font-family: Roboto, Ubuntu;

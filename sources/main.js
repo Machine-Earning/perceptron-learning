@@ -9,8 +9,8 @@ const saveDataset = require('./utils').saveDataset
 
 
 
-
-var DATASET = readDataset()
+// reading dataset from json file
+var JSON = readDataset()
 const P = new Perceptron()
 
 
@@ -18,34 +18,34 @@ const P = new Perceptron()
 
 router.get('/', (req, res) => {
     res.render('main', {
-        dataNum: DATASET.length
+        dataNum: JSON.dataset.length
     })
     console.log('Enter Data')
 })
 
-router.post('/', (req, res) => {
 
+router.post('/', (req, res) => {
+    // getting the input
     let input = parseInput(req.body.input)
     let target = parseTarget(req.body.target)
 
-    DATASET = readDataset()
-    DATASET.push(new Data(input, target))
-    saveDataset(DATASET)
-
-    console.log(DATASET)
+    JSON.dataset.push(new Data(input, target))
+    console.log(JSON.dataset)
+    saveDataset(JSON)
 
     console.log('Data added to Dataset')
     res.redirect('/')
+
 })
 
 
 router.get('/train', (req, res) => {
 
-    DATASET = readDataset()
-    console.log(`Dataset size ${DATASET.length}`)
+    JSON.dataset = readDataset()
+    console.log(`Dataset size ${JSON.dataset.length}`)
 
-    P.train(DATASET.length, DATASET)
-    P.predict(DATASET[0].input)
+    P.train(JSON.dataset.length, JSON.dataset)
+    P.predict(JSON.dataset[0].input)
     res.redirect('/')
 })
 

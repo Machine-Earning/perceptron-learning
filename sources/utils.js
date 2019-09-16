@@ -40,27 +40,17 @@ module.exports.vec2matrix = (array) => {
 
 
 module.exports.saveDataset = (obj) => {
-    let jsonObj = JSON.parse(obj)
-    console.log(jsonObj)
+    let jsonContent = JSON.stringify(obj)
 
-    let jsonContent = JSON.stringify(jsonObj)
+    fs.writeFileSync('./sources/dataset.json', jsonContent);
+    console.log('data saved to json')
 
-    fs.writeFile('dataset.json', jsonContent, 'utf8', (error) => {
-        if (error) {
-            console.log('Error while writing to File.')
-            return console.log(error)
-        }
-        console.log('data saved to json')
-    })
 }
 
 
 module.exports.readDataset = () => {
-    let jsonParsed
-    fs.readFile('dataset.json', (error, data) => {
-        // let jsonData = data
-        jsonParsed = JSON.parse(data)
-    })
-    console.log(jsonParsed)
+    let data = fs.readFileSync('./sources/dataset.json')
+    jsonParsed = JSON.parse(data);
+    // console.log(jsonParsed.dataset)
     return jsonParsed
 }

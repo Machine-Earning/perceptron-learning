@@ -1,5 +1,5 @@
 // file for helper functions
-
+const fs = require('fs')
 
 module.exports.populateArray = (array, rowNum, colNum, val) => {
     for (let i = 0; i < rowNum; ++i) {
@@ -36,4 +36,31 @@ module.exports.vec2matrix = (array) => {
         res[i] = [array[i]]
     }
     return res
+}
+
+
+module.exports.saveDataset = (obj) => {
+    let jsonObj = JSON.parse(obj)
+    console.log(jsonObj)
+
+    let jsonContent = JSON.stringify(jsonObj)
+
+    fs.writeFile('dataset.json', jsonContent, 'utf8', (error) => {
+        if (error) {
+            console.log('Error while writing to File.')
+            return console.log(error)
+        }
+        console.log('data saved to json')
+    })
+}
+
+
+module.exports.readDataset = () => {
+    let jsonParsed
+    fs.readFile('dataset.json', (error, data) => {
+        // let jsonData = data
+        jsonParsed = JSON.parse(data)
+    })
+    console.log(jsonParsed)
+    return jsonParsed
 }

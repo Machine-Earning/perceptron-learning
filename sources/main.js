@@ -2,14 +2,19 @@
 const router = require('express').Router()
 const Data = require('./data')
 const Perceptron = require('./perceptron')
-const {
-    populateArray,
-    parseInput,
-    parseTarget
-} = require('./utils')
+const parseInput = require('./utils').parseInput
+const parseTarget = require('./utils').parseTarget
+const readDataset = require('./utils').readDataset
+const saveDataset = require('./utils').saveDataset
 
-const DATASET = []
+
+
+
+var DATASET = readDataset()
 const P = new Perceptron()
+
+
+
 
 router.get('/', (req, res) => {
     res.render('main', {
@@ -23,8 +28,9 @@ router.post('/', (req, res) => {
     let input = parseInput(req.body.input)
     let target = parseTarget(req.body.target)
 
+    DATASET = readDataset()
     DATASET.push(new Data(input, target))
-
+    saveDataset(DATASET)
 
     console.log(DATASET)
 
@@ -35,6 +41,7 @@ router.post('/', (req, res) => {
 
 router.get('/train', (req, res) => {
 
+    DATASET = readDataset()
     console.log(`Dataset size ${DATASET.length}`)
 
     P.train(DATASET.length, DATASET)

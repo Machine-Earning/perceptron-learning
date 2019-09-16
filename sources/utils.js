@@ -44,6 +44,7 @@ module.exports.saveDataset = (obj) => {
 
     fs.writeFileSync('./sources/dataset.json', jsonContent);
     console.log('data saved to json')
+    return
 
 }
 

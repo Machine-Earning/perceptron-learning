@@ -30,7 +30,7 @@ router.post('/', (req, res) => {
     let target = parseTarget(req.body.target)
 
     JSON.dataset.push(new Data(input, target))
-    console.log(JSON.dataset)
+    // console.log(JSON.dataset)
     saveDataset(JSON)
 
     console.log('Data added to Dataset')
@@ -41,11 +41,12 @@ router.post('/', (req, res) => {
 
 router.get('/train', (req, res) => {
 
-    JSON.dataset = readDataset()
+    // JSON.dataset = readDataset()
     console.log(`Dataset size ${JSON.dataset.length}`)
 
     P.train(JSON.dataset.length, JSON.dataset)
-    P.predict(JSON.dataset[0].input)
+
+    // P.predict(JSON.dataset[0].input)
     res.redirect('/')
 })
 

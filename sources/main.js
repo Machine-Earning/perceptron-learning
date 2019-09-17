@@ -31,14 +31,20 @@ router.post('/', (req, res) => {
 
 
     JSON.dataset.push(new Data(input, target))
-    res.redirect('/')
+
     // console.log(JSON.dataset)
     saveDataset(JSON)
 
     console.log('Data added to Dataset')
 
-
+    res.redirect('/')
 })
+
+
+
+// router.get('/main', (req, res) => {
+//     res.redirect('/')
+// })
 
 
 router.get('/train', (req, res) => {

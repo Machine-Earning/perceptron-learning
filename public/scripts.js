@@ -8,3 +8,7 @@ for (let input of inputs) {
         input.checked = true
     }
 }
+
+function reload() {
+    location.reload();
+}

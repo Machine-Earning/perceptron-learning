@@ -26,10 +26,12 @@ class Perceptron {
             this.weights[i] = new Array(63).fill(0)
         }
         populateArray(this.weights, 7, 63, Math.random())
+        // populateArray(this.weights, 7, 63, 0)
 
 
         this.biases = vec2matrix(new Array(7).fill(0))
         populateArray(this.biases, 7, 1, Math.random())
+        // populateArray(this.biases, 7, 1, 0)
     }
 
     // Loss function

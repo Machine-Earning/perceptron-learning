@@ -98,7 +98,7 @@ class Perceptron {
 
         for (let e = 0; e < epochNum; ++e) {
             // display the epooch number
-            console.log(`Epoch # ${e}\n`)
+            console.log(`Epoch # ${e}\n\n`)
 
             // for (let data of dataset) {
             // propagate the data through the network

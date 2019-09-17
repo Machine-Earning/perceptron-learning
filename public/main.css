@@ -54,3 +54,9 @@ td.grid {
 .target-container {
     margin-left: 2.5%;
 }
+
+
+.text-danger {
+    font-size: 24px;
+    color: red;
+}

@@ -113,8 +113,10 @@ class Perceptron {
 
 
     predict(input) {
-        console.log(`Input: ${input}\n`)
-        console.log(`Output: ${this.feedForward(input)}\n`)
+        console.log('input:')
+        console.log(input)
+        console.log('output:')
+        console.log(this.feedForward(input))
     }
 
 

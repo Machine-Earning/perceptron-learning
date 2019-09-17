@@ -15,17 +15,7 @@ const P = new Perceptron()
 
 
 
-
 router.get('/', (req, res) => {
-    // res.render('main', {
-    //     dataNum: JSON.dataset.length
-    // })
-    // console.log('Enter Data')
-    res.redirect('/main')
-})
-
-
-router.get('/main', (req, res) => {
     res.render('main', {
         dataNum: JSON.dataset.length
     })
@@ -56,14 +46,26 @@ router.get('/train', (req, res) => {
     // JSON.dataset = readDataset()
     console.log(`Dataset size ${JSON.dataset.length}`)
     P.train(JSON.dataset.length, JSON.dataset)
-
-    res.redirect('/main')
+    // P.predict(JSON.dataset[0])
+    res.redirect('/test')
 })
+
 
 
 router.get('/test', (req, res) => {
-
+    res.render('test', {
+        dataNum: JSON.dataset.length
+    })
+    console.log('Test data')
 })
+
+
+router.post('/test', (req, res) => {
+    let input = parseInput(req.body.input)
+    P.predict(input)
+    res.redirect('/test')
+})
+
 
 
 

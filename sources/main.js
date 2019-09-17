@@ -17,6 +17,15 @@ const P = new Perceptron()
 
 
 router.get('/', (req, res) => {
+    // res.render('main', {
+    //     dataNum: JSON.dataset.length
+    // })
+    // console.log('Enter Data')
+    res.redirect('/main')
+})
+
+
+router.get('/main', (req, res) => {
     res.render('main', {
         dataNum: JSON.dataset.length
     })
@@ -24,17 +33,20 @@ router.get('/', (req, res) => {
 })
 
 
+
 router.post('/', (req, res) => {
     // getting the input
     let input = parseInput(req.body.input)
     let target = parseTarget(req.body.target)
 
+
     JSON.dataset.push(new Data(input, target))
+    res.redirect('/')
     // console.log(JSON.dataset)
     saveDataset(JSON)
 
     console.log('Data added to Dataset')
-    res.redirect('/')
+
 
 })
 
@@ -43,11 +55,9 @@ router.get('/train', (req, res) => {
 
     // JSON.dataset = readDataset()
     console.log(`Dataset size ${JSON.dataset.length}`)
-
     P.train(JSON.dataset.length, JSON.dataset)
 
-    // P.predict(JSON.dataset[0].input)
-    res.redirect('/')
+    res.redirect('/main')
 })
 
 

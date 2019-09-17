@@ -13,12 +13,12 @@ const mainRoute = require('./sources/main')
 app.use(morgan('dev')) // logging requests to server
 
 app.set('view engine', 'ejs')
-app.set('views', __dirname + '/views/')
+app.set('views', './views/')
 app.set('layout', 'layout') // not a file path; does a lookpu
 
 
 app.use(layouts)
-app.use(express.static(__dirname + '/public')) // serving frontend file; index.html is starting point
+app.use(express.static('./public')) // serving frontend file; index.html is starting point
 app.use(express.json()) // middleware to read json
 app.use(bodyParser.urlencoded({
     extended: false

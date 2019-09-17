@@ -109,6 +109,11 @@ class Perceptron {
             // }
         }
 
+        console.log('Weights')
+        console.log(this.weights)
+        console.log('Biases')
+        console.log(this.biases)
+
     }
 
 

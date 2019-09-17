@@ -41,12 +41,6 @@ router.post('/', (req, res) => {
 })
 
 
-
-// router.get('/main', (req, res) => {
-//     res.redirect('/')
-// })
-
-
 router.get('/train', (req, res) => {
 
     // JSON.dataset = readDataset()

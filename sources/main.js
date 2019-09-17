@@ -12,6 +12,7 @@ const saveDataset = require('./utils').saveDataset
 // reading dataset from json file
 var JSON = readDataset()
 const P = new Perceptron()
+var pred
 
 
 
@@ -54,7 +55,7 @@ router.get('/train', (req, res) => {
 
 router.get('/test', (req, res) => {
     res.render('test', {
-        dataNum: JSON.dataset.length
+        prediction: pred
     })
     console.log('Test data')
 })
@@ -62,7 +63,7 @@ router.get('/test', (req, res) => {
 
 router.post('/test', (req, res) => {
     let input = parseInput(req.body.input)
-    P.predict(input)
+    pred = P.predict(input)
     res.redirect('/test')
 })
 

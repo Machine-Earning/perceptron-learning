@@ -55,3 +55,12 @@ module.exports.readDataset = () => {
     // console.log(jsonParsed.dataset)
     return jsonParsed
 }
+
+module.exports.parseOutput = (output) => {
+    let letters = ['A', 'B', 'C', 'D', 'E', 'J', 'K']
+
+    for (let i = 0; i < output.length; ++i) {
+        if (output[i][0] === 1)
+            return letters[i]
+    }
+}

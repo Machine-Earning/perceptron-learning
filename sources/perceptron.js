@@ -3,6 +3,7 @@ const math = require('mathjs')
 const data = require('./data')
 const populateArray = require('./utils').populateArray
 const vec2matrix = require('./utils').vec2matrix
+const parseOutput = require('./utils').parseOutput
 
 class Perceptron {
     // constructor for the NN
@@ -121,7 +122,9 @@ class Perceptron {
         console.log('input:')
         console.log(input)
         console.log('output:')
-        console.log(this.feedForward(input))
+        let output = this.feedForward(input)
+        console.log(output)
+        return parseOutput(output)
     }
 
 

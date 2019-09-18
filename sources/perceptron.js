@@ -25,13 +25,13 @@ class Perceptron {
         for (let i = 0; i < this.weights.length; ++i) {
             this.weights[i] = new Array(63).fill(0)
         }
-        populateArray(this.weights, 7, 63, Math.random())
-        // populateArray(this.weights, 7, 63, 0)
+        // populateArray(this.weights, 7, 63, Math.random())
+        populateArray(this.weights, 7, 63, 0)
 
 
         this.biases = vec2matrix(new Array(7).fill(0))
-        populateArray(this.biases, 7, 1, Math.random())
-        // populateArray(this.biases, 7, 1, 0)
+        // populateArray(this.biases, 7, 1, Math.random())
+        populateArray(this.biases, 7, 1, 0)
     }
 
     // Loss function
@@ -45,12 +45,18 @@ class Perceptron {
     }
 
     // activation function
-    hardLim(n, rowSize, colSize) {
+    activation(n, rowSize, colSize) {
         let res = new Array(rowSize)
         for (let i = 0; i < rowSize; ++i) {
             res[i] = new Array(colSize)
-            for (let j = 0; j < colSize; ++j)
-                res[i][j] = (n[i][j] >= 0) ? 1 : 0
+            for (let j = 0; j < colSize; ++j) {
+
+                if (n[i][j] > 0) res[i][j] = 1
+                else if (n[i][j] < 0) res[i][j] = -1
+                else res[i][j] = 0
+
+            }
+            // add a middle ground
         }
         return res
     }
@@ -61,7 +67,7 @@ class Perceptron {
     // training part 1
     feedForward(input) {
         input = vec2matrix(input)
-        this.output = this.hardLim(math.add(math.multiply(this.weights, input), this.biases), 7, 1)
+        this.output = this.activation(math.add(math.multiply(this.weights, input), this.biases), 7, 1)
         return this.output
     }
 
@@ -100,16 +106,19 @@ class Perceptron {
         }
 
         for (let e = 0; e < epochNum; ++e) {
-            // display the epooch number
-            console.log(`Epoch # ${e}\n\n`)
 
-            // for (let data of dataset) {
-            // propagate the data through the network
-            this.feedForward(dataset[e].input)
+            // display the epoch number
+            console.log(`\nEpoch # ${e}\n`)
 
-            // update the weights in the network
-            this.backPropagation(dataset[e].input, dataset[e].target, this.output)
-            // }
+            for (let i = 0; i < dataset.length; ++i) {
+                // for (let data of dataset) {
+                // propagate the data through the network
+                this.feedForward(dataset[i].input)
+
+                // update the weights in the network
+                this.backPropagation(dataset[i].input, dataset[i].target, this.output)
+                // }
+            }
         }
 
         console.log('Weights')

@@ -8,7 +8,7 @@ const readDataset = require('./utils').readDataset
 const saveDataset = require('./utils').saveDataset
 
 
-
+const N_EPOCHS = 10;
 // reading dataset from json file
 var JSON = readDataset()
 const P = new Perceptron()
@@ -46,7 +46,7 @@ router.get('/train', (req, res) => {
 
     // JSON.dataset = readDataset()
     console.log(`Dataset size ${JSON.dataset.length}`)
-    P.train(JSON.dataset.length, JSON.dataset)
+    P.train(N_EPOCHS, JSON.dataset)
     // P.predict(JSON.dataset[0])
     res.redirect('/test')
 })

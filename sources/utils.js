@@ -13,7 +13,7 @@ module.exports.populateArray = (array, rowNum, colNum, val) => {
 
 
 module.exports.parseInput = (rawInput) => {
-    input = new Array(63).fill(0)
+    input = new Array(63).fill(-1)
     for (let index of rawInput) {
         input[parseInt(index, 10)] = 1;
     }
@@ -22,7 +22,7 @@ module.exports.parseInput = (rawInput) => {
 
 
 module.exports.parseTarget = (rawTarget) => {
-    target = new Array(7).fill(0)
+    target = new Array(7).fill(-1)
     target[parseInt(rawTarget, 10)] = 1;
 
     return target

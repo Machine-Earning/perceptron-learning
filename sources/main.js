@@ -6,9 +6,10 @@ const parseInput = require('./utils').parseInput
 const parseTarget = require('./utils').parseTarget
 const readDataset = require('./utils').readDataset
 const saveDataset = require('./utils').saveDataset
+const readQ2Data = require('./utils').readQ2Data
 
 
-const N_EPOCHS = 10;
+const N_EPOCHS = 5;
 // reading dataset from json file
 var JSON = readDataset()
 const P = new Perceptron()
@@ -64,6 +65,17 @@ router.get('/test', (req, res) => {
 router.post('/test', (req, res) => {
     let input = parseInput(req.body.input)
     pred = P.predict(input)
+    res.redirect('/test')
+})
+
+
+router.get('/Q2', (req, res) => {
+    // let input = parseInput(req.body.input)
+    let missing = readQ2Data()
+    for (let miss in missing) {
+        console.log(miss)
+        P.predict(missing[miss])
+    }
     res.redirect('/test')
 })
 

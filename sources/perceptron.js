@@ -1,6 +1,6 @@
 // perceptron.js for perceptron object
 const math = require('mathjs')
-const data = require('./data')
+// const data = require('./data')
 const populateArray = require('./utils').populateArray
 const vec2matrix = require('./utils').vec2matrix
 const parseOutput = require('./utils').parseOutput
@@ -130,8 +130,8 @@ class Perceptron {
 
 
     predict(input) {
-        console.log('input:')
-        console.log(input)
+        // console.log('input:')
+        // console.log(input)
         console.log('output:')
         let output = this.feedForward(input)
         console.log(output)

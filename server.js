@@ -1,5 +1,6 @@
 'use strict'
 // Code for server side
+require('dotenv').config()
 const express = require('express')
 const app = express()
 
@@ -31,6 +32,6 @@ app.use('/', mainRoute)
 
 
 
-server.listen(8080, (error) => {
-    console.log((error) ? error : `Perceptron\nServer up on ${8080}`)
+server.listen(process.env.PORT, (error) => {
+    console.log((error) ? error : `Perceptron\nServer up on ${process.env.PORT}`)
 })

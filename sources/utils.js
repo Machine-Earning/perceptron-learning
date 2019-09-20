@@ -65,9 +65,11 @@ module.exports.readQ2Data = () => {
 
 module.exports.parseOutput = (output) => {
     let letters = ['A', 'B', 'C', 'D', 'E', 'J', 'K']
+    let res = ""
 
     for (let i = 0; i < output.length; ++i) {
         if (output[i][0] === 1)
-            return letters[i]
+            res += letters[i]
     }
+    return (res.length === 0) ? "?" : res;
 }

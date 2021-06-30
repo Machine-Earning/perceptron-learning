@@ -52,7 +52,7 @@ class Perceptron {
         //act_f(x) = {
         //    1 if x > 0
         //    -1 if x < 0 
-        //    1 if x = 0
+        //    0 if x = 0
         // }
 
         let res = new Array(rowSize)
@@ -76,7 +76,9 @@ class Perceptron {
     // training part 1
     feedForward(input) {
         input = vec2matrix(input)
+
         // y = act_f(w*x + b)
+        
         this.output = this.activation(math.add(math.multiply(this.weights, input), this.biases), 7, 1)
         return this.output
     }

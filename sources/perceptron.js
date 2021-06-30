@@ -40,12 +40,21 @@ class Perceptron {
         // for (let i = 0; i < target.length; ++i) {
         //     e[i] = target[i] - output[i]
         // }
+
+        // e = t - y
         let e = math.subtract(target, output)
         return e
     }
 
-    // activation function
+    // activation function 
     activation(n, rowSize, colSize) {
+        // bipolar step activation function
+        //act_f(x) = {
+        //    1 if x > 0
+        //    -1 if x < 0 
+        //    1 if x = 0
+        // }
+
         let res = new Array(rowSize)
         for (let i = 0; i < rowSize; ++i) {
             res[i] = new Array(colSize)
@@ -67,6 +76,7 @@ class Perceptron {
     // training part 1
     feedForward(input) {
         input = vec2matrix(input)
+        // y = act_f(w*x + b)
         this.output = this.activation(math.add(math.multiply(this.weights, input), this.biases), 7, 1)
         return this.output
     }
@@ -92,8 +102,9 @@ class Perceptron {
         // console.log(input)
         // console.log('transposed')
         // console.log(transposed)
-
+        // w_new = w_old + e* x_tranposed
         this.weights = math.add(this.weights, math.multiply(e, transposed))
+        // b_new = b_old + e 
         this.biases = math.add(this.biases, e)
     }
 

@@ -2,7 +2,8 @@
 
 <div class="main-container">
     <form action="/" method="post">
-        <h1><a href="/">Training</a></h1>
+        <h1><a href="/" style="text-decoration: none;">Training Phase</a></h1>
+        <br>
 
         <h3>Input Matrix</h3>
         <div class="grid-container">
@@ -82,21 +83,25 @@
 
         <br>
         <button class="mdc-button mdc-button" type="reset">
-            <span class="mdc-button__label">Clear</span>
+            <span class="mdc-button__label">Clear Input</span>
         </button>
-        <button class=" mdc-button mdc-button--outlined" type="submit">
-            <span class="mdc-button__label">Add Data</span>
+        <button class=" mdc-button mdc-button--outlined " type="submit">
+            <span class="mdc-button__label">Add Data to Dataset</span>
         </button>
         <!-- remove the tagert layer when done training -->
-        <a class="mdc-button mdc-button--unelevated" href="/train">
-            <span class="mdc-button__label">Train</span>
-        </a>
+        
         <br>
 
         <br>
         <h3><i>Dataset Size</i></h3>
         <p class="text-danger"><%= dataNum %> data items</p>
+        <a class="mdc-button mdc-button--unelevated" href="/train">
+            <span class="mdc-button__label">Train Network</span>
+        </a>
 
-        <a class="mdc-icon-button material-icons" href="/test">arrow_forward</a>
+        <a href="/test">
+            
+            <h1>Go Test<button class="mdc-icon-button material-icons" >arrow_forward</button></h1>
+        </a>
     </form>
 </div>

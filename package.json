@@ -26,8 +26,8 @@
     "express-ejs-layouts": "^2.5.0",
     "fs": "0.0.1-security",
     "http": "0.0.0",
-    "mathjs": "^6.2.1",
+    "mathjs": "^9.4.3",
     "morgan": "^1.9.1",
-    "nodemon": "^1.19.2"
+    "nodemon": "^2.0.8"
   }
 }

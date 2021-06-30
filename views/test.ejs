@@ -2,7 +2,7 @@
 
 <div class="main-container">
     <form action="/test" method="post">
-        <h1><a href="/">Testing</a></h1>
+        <h1><a href="/" style="text-decoration: none;">Testing Phase</a></h1>
 
         <h3>Input Matrix</h3>
         <div class="grid-container">
@@ -51,20 +51,22 @@
         <br>
         <h3>
             <i>Letter</i>
-            <p class="text-danger"><%= prediction %></p>
+            
         </h3>
-
-
+        <h1 class="text-danger"><%= prediction %></h1>
 
         <br>
         <button class="mdc-button mdc-button" type="reset">
-            <span class="mdc-button__label">Clear</span>
+            <span class="mdc-button__label">Clear Input</span>
         </button>
         <button class=" mdc-button mdc-button--unelevated" type="submit">
-            <span class="mdc-button__label">Predict</span>
+            <span class="mdc-button__label">Predict Letter</span>
         </button>
 
         <br>
-        <a class="mdc-icon-button material-icons" href="/">arrow_back</a>
+        <a href="/">
+            <h1><button class="mdc-icon-button material-icons">arrow_back</button>Go Train</h1>
+        </a>
+        
     </form>
 </div>

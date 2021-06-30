@@ -56,20 +56,23 @@ module.exports.readDataset = () => {
     return jsonParsed
 }
 
-module.exports.readQ2Data = () => {
-    let data = fs.readFileSync('./sources/data/question2.json')
-    jsonParsed = JSON.parse(data);
-    // console.log(jsonParsed.dataset)
-    return jsonParsed
-}
+// module.exports.readQ2Data = () => {
+//     let data = fs.readFileSync('./sources/data/question2.json')
+//     jsonParsed = JSON.parse(data);
+//     // console.log(jsonParsed.dataset)
+//     return jsonParsed
+// }
 
 module.exports.parseOutput = (output) => {
     let letters = ['A', 'B', 'C', 'D', 'E', 'J', 'K']
     let res = ""
 
     for (let i = 0; i < output.length; ++i) {
-        if (output[i][0] === 1)
+        if (output[i][0] === 1) {
             res += letters[i]
+            break
+        }
+            
     }
     return (res.length === 0) ? "?" : res;
 }
